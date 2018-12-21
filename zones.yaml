@@ -1,0 +1,23 @@
+
+- name: home
+  latitude: !secret home_lat
+  longitude: !secret home_long
+  radius: 250
+
+- name: work_ben
+  latitude: !secret terminus_lat
+  longitude: !secret terminus_long
+  radius: 250
+
+- name: work_anna
+  latitude: !secret callrail_lat
+  longitude: !secret callrail_long
+  radius: 250
+
+- name: julie
+  latitude: !secret julie_lat
+  longitude: !secret julie_long
+  radius: 250
+
+
+

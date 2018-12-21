@@ -1,0 +1,44 @@
+# Workdays
+- platform: workday
+  name: workday
+  country: US
+
+# Worknights
+- platform: workday
+  name: worknight
+  country: US
+  days_offset: 1
+
+# Benjamin's Presence
+- platform: bayesian
+  name: 'Benjamin Presence'
+  prior: 0.5
+  probability_threshold: 0.9
+  observations:
+    - entity_id: 'device_tracker.miphone'
+      prob_given_true: 0.9
+      prob_given_false: 0.1
+      platform: 'state'
+      to_state: 'home'
+    - entity_id: 'device_tracker.miphonelan'
+      prob_given_true: 0.9
+      prob_given_false: 0.4
+      platform: 'state'
+      to_state: 'home'
+
+# Anna's Presence
+- platform: bayesian
+  name: 'Anna Presence'
+  prior: 0.5
+  probability_threshold: 0.9
+  observations:
+    - entity_id: 'device_tracker.annas_iphone'
+      prob_given_true: 0.9
+      prob_given_false: 0.1
+      platform: 'state'
+      to_state: 'home'
+    - entity_id: 'device_tracker.annasiphonelan'
+      prob_given_true: 0.9
+      prob_given_false: 0.4
+      platform: 'state'
+      to_state: 'home'

@@ -1,0 +1,8 @@
+alexa:
+  filter:
+    exclude_entities:
+      - group.all_automations
+      - group.all_scripts
+      - group.all_switches
+      - sensor.dark_sky_daytime_high_apparent_temperature_2
+

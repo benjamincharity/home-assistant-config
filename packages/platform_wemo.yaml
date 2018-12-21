@@ -1,0 +1,5 @@
+wemo:
+  #discovery: true
+  #static:
+    #- !secret wemo_01_ip
+    #- !secret wemo_02_ip

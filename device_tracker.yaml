@@ -1,0 +1,8 @@
+
+- platform: bluetooth_tracker
+
+- platform: nmap_tracker
+  hosts: !secret bens_iphone_ip
+
+- platform: nmap_tracker
+  hosts: !secret annas_iphone_ip

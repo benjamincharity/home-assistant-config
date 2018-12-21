@@ -1,0 +1,15 @@
+.august.conf
+.cloud
+.HA_VERSION
+.ios.conf
+.spotify_cache_ben
+.spotify_cache_echo
+.storage
+.uuid
+deps/
+home-assistant.log
+home-assistant_v2.db
+known_devices.yaml
+plex.conf
+secrets.yaml
+tts/

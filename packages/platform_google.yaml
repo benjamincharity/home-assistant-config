@@ -1,0 +1,26 @@
+
+# Text to speech
+tts:
+  - platform: google
+
+# Google Wifi
+sensor:
+  - platform: google_wifi
+    name: Google Wifi
+    host: !secret google_wifi_ip
+    monitored_conditions:
+      - current_version
+      - new_version
+      - uptime
+      - last_restart
+      - status
+
+group:
+  google_card:
+    name: Google
+    entities:
+      - sensor.google_wifi_current_version
+      - sensor.google_wifi_last_restart
+      - sensor.google_wifi_new_version
+      - sensor.google_wifi_status
+      - sensor.google_wifi_uptime

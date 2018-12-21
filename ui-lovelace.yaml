@@ -1,0 +1,280 @@
+resources:
+  - url: /local/custom_ui/dark-sky-weather-card.js?v=1.1.8
+    type: js
+  - url: /local/custom_ui/thermostat-card/thermostat-card.js?v=1
+    type: module
+  - url: /local/custom_ui/surveillance-card.js?v=0
+    type: module
+  - url: /local/custom_ui/fold-entity-row.js?v=0
+    type: module
+  - url: /local/custom_ui/bignumber-card.js?v=0
+    type: module
+
+
+
+
+title: Home Sweet Home
+
+views:
+  - title: Home
+    icon: mdi:home-assistant
+    id: home
+    cards:
+      - type: custom:dark-sky-weather-card
+        id: dark-sky
+        entity_sun: sun.sun
+        entity_daily_summary: sensor.dark_sky_daily_summary
+        entity_current_conditions: sensor.dark_sky_icon  
+        entity_humidity: sensor.dark_sky_humidity
+        entity_pressure: sensor.dark_sky_pressure
+        entity_temperature: sensor.dark_sky_temperature
+        entity_visibility: sensor.dark_sky_visibility
+        entity_wind_bearing: sensor.dark_sky_wind_bearing
+        entity_wind_speed: sensor.dark_sky_wind_speed
+        entity_forecast_high_temp_1: sensor.dark_sky_daytime_high_temperature_1
+        entity_forecast_high_temp_2: sensor.dark_sky_daytime_high_temperature_2
+        entity_forecast_high_temp_3: sensor.dark_sky_daytime_high_temperature_3
+        entity_forecast_high_temp_4: sensor.dark_sky_daytime_high_temperature_4
+        entity_forecast_high_temp_5: sensor.dark_sky_daytime_high_temperature_5
+        entity_forecast_low_temp_1: sensor.dark_sky_overnight_low_temperature_1
+        entity_forecast_low_temp_2: sensor.dark_sky_overnight_low_temperature_2
+        entity_forecast_low_temp_3: sensor.dark_sky_overnight_low_temperature_3
+        entity_forecast_low_temp_4: sensor.dark_sky_overnight_low_temperature_4
+        entity_forecast_low_temp_5: sensor.dark_sky_overnight_low_temperature_5
+        entity_forecast_icon_1: sensor.dark_sky_icon_1
+        entity_forecast_icon_2: sensor.dark_sky_icon_2
+        entity_forecast_icon_3: sensor.dark_sky_icon_3
+        entity_forecast_icon_4: sensor.dark_sky_icon_4
+        entity_forecast_icon_5: sensor.dark_sky_icon_5
+
+      # Location Status'
+      - type: vertical-stack
+        cards:
+        - type: picture-entity
+          image: /local/images/people/ben-1.jpg
+          entity: device_tracker.miphone
+        - type: picture-entity
+          image: /local/images/people/anna-1.jpg
+          entity: device_tracker.annas_iphone
+
+      # Thermostat
+      - type: thermostat
+        entity: climate.hallway
+
+      # Rooms (glance)
+      - type: vertical-stack
+        cards:
+        - type: picture-glance
+          title: Living room
+          id: glance-living-room
+          entities:
+            - light.family_room_lamp
+            - light.tv
+          camera_image: camera.family_room
+
+        - type: picture-glance
+          title: Office
+          id: glance-living-room
+          entities:
+            - light.office_main_lights
+            - light.bens_desk
+          camera_image: camera.office
+
+      # Lights (rooms)
+      - type: entities
+        title: Lights
+        id: lights
+        entities:
+          - type: custom:fold-entity-row
+            head: group.living_room
+          - type: custom:fold-entity-row
+            head: group.family_room
+          - type: custom:fold-entity-row
+            head: group.dining_room
+          - type: custom:fold-entity-row
+            head: group.office
+          - type: custom:fold-entity-row
+            head: group.master
+
+      - type: glance
+        title: Energy
+        id: energy
+        entities:
+          - entity: switch.wemo_insight_02
+
+
+      # Podcasts
+      #- type: glance
+        #title: Podcasts
+        #entities:
+          #- sensor.pocketcasts_unlistened_episodes
+
+
+      # Internet Speed
+      - type: custom:bignumber-card
+        title: Internet Speed
+        entity: sensor.fastcom_download
+        scale: 30px
+        from: left
+        min: 0
+        max: 100
+        severity:
+          - value: 10
+            style: 'var(--label-badge-red)'
+          - value: 30
+            style: 'var(--label-badge-yellow)'
+          - value: 100
+            style: 'var(--label-badge-green)'
+
+      - type: map
+        aspect_ratio: 16:9
+        default_zoom: 8
+        entities:
+          - device_tracker.miphone
+          - device_tracker.annas_iphone
+          - zone.home
+
+
+
+
+
+
+
+  - title: Surveillance
+    icon: mdi:cctv
+    panel: true
+    cards:
+      - type: custom:surveillance-card
+        thumb_interval: 15
+        update_interval: 2
+        cameras:
+          - entity: camera.front_door
+            motion_entity: binary_sensor.front_door_camera__porch_activity
+          - entity: camera.family_room
+            motion_entity: binary_sensor.family_room_camera_motion_detected
+          - entity: camera.office
+            motion_entity: binary_sensor.office_camera_motion_detected
+
+
+
+
+  - title: Morning
+    icon: mdi:weather-sunset-up
+    id: morning
+    cards:
+      - type: custom:dark-sky-weather-card
+        id: dark-sky-morning
+        entity_sun: sun.sun
+        entity_daily_summary: sensor.dark_sky_daily_summary
+        entity_current_conditions: sensor.dark_sky_icon  
+        entity_humidity: sensor.dark_sky_humidity
+        entity_pressure: sensor.dark_sky_pressure
+        entity_temperature: sensor.dark_sky_temperature
+        entity_visibility: sensor.dark_sky_visibility
+        entity_wind_bearing: sensor.dark_sky_wind_bearing
+        entity_wind_speed: sensor.dark_sky_wind_speed
+        entity_forecast_high_temp_1: sensor.dark_sky_daytime_high_temperature_1
+        entity_forecast_high_temp_2: sensor.dark_sky_daytime_high_temperature_2
+        entity_forecast_high_temp_3: sensor.dark_sky_daytime_high_temperature_3
+        entity_forecast_high_temp_4: sensor.dark_sky_daytime_high_temperature_4
+        entity_forecast_high_temp_5: sensor.dark_sky_daytime_high_temperature_5
+        entity_forecast_low_temp_1: sensor.dark_sky_overnight_low_temperature_1
+        entity_forecast_low_temp_2: sensor.dark_sky_overnight_low_temperature_2
+        entity_forecast_low_temp_3: sensor.dark_sky_overnight_low_temperature_3
+        entity_forecast_low_temp_4: sensor.dark_sky_overnight_low_temperature_4
+        entity_forecast_low_temp_5: sensor.dark_sky_overnight_low_temperature_5
+        entity_forecast_icon_1: sensor.dark_sky_icon_1
+        entity_forecast_icon_2: sensor.dark_sky_icon_2
+        entity_forecast_icon_3: sensor.dark_sky_icon_3
+        entity_forecast_icon_4: sensor.dark_sky_icon_4
+        entity_forecast_icon_5: sensor.dark_sky_icon_5
+
+      # Lights (rooms)
+      - type: entities
+        title: Lights
+        id: lights-morning
+        entities:
+          - type: custom:fold-entity-row
+            head: group.living_room
+          - type: custom:fold-entity-row
+            head: group.family_room
+          - type: custom:fold-entity-row
+            head: group.dining_room
+          - type: custom:fold-entity-row
+            head: group.office
+          - type: custom:fold-entity-row
+            head: group.master
+
+      # Commute
+      - type: glance
+        title: Commute
+        id: marta-train-times
+        entities:
+          - sensor.marta_train_times
+
+
+
+
+
+
+  - title: Evening
+    icon: mdi:weather-sunset
+    id: evening
+    cards:
+
+      # Lights (rooms)
+      - type: entities
+        title: Lights
+        id: lights-evening
+        entities:
+          - type: custom:fold-entity-row
+            head: group.living_room
+          - type: custom:fold-entity-row
+            head: group.family_room
+          - type: custom:fold-entity-row
+            head: group.dining_room
+          - type: custom:fold-entity-row
+            head: group.office
+          - type: custom:fold-entity-row
+            head: group.master
+
+      # Rooms (glance)
+      - type: vertical-stack
+        cards:
+        - type: picture-glance
+          title: Living room
+          id: evening-glance-living-room
+          entities:
+            - light.family_room_lamp
+            - light.tv
+          camera_image: camera.family_room
+
+        - type: picture-glance
+          title: Office
+          id: evening-glance-office
+          entities:
+            - light.office_main_lights
+            - light.bens_desk
+          camera_image: camera.office
+
+      # Commute
+      - type: glance
+        title: Glance card sample
+        id: commute-evening-ben
+        entities:
+          - sensor.work_to_home_ben
+
+      # Media
+      - type: vertical-stack
+        name: Media
+        cards:
+        - type: media-control
+          id: media-evening-ben
+          entity: media_player.bens_spotify
+        - type: media-control
+          id: media-evening-echo
+          entity: media_player.echo_spotify
+
+
+
+

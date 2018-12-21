@@ -1,0 +1,77 @@
+homeassistant:
+  name: Home
+  latitude: !secret home_lat
+  longitude: !secret home_long
+  elevation: !secret home_elevation
+  unit_system: imperial
+  time_zone: EST
+  auth_providers:
+   - type: homeassistant
+   - type: legacy_api_password
+  customize: !include customize.yaml
+  packages: !include_dir_named packages
+    #pack_1: !include custom_components/spotify_playlist_player.yaml
+
+
+# Components
+cloud: !include cloud.yaml
+config:
+conversation:
+discovery:
+history:
+ios:
+logbook:
+lovelace:
+  mode: yaml
+map:
+sun:
+updater:
+
+
+# Includes
+automation: !include automations.yaml
+binary_sensor: !include binary_sensors.yaml
+group: !include groups.yaml
+media_player: !include media_players.yaml
+device_tracker: !include device_tracker.yaml
+scene: !include scenes.yaml
+script: !include scripts.yaml
+sensor: !include sensors.yaml
+zone: !include zones.yaml
+
+
+# Enables the frontend
+frontend:
+  themes: !include themes.yaml
+
+
+http:
+  api_password: !secret http_api_password
+  base_url: !secret base_url
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
+
+
+# TP LINK
+switch:
+  - platform: tplink
+    host: !secret tp_link_url_01
+  - platform: tplink
+    host: !secret tp_link_url_02
+
+
+# Panels
+# iFrame Configurator, Terminal, Tasmoadmin & MDI Icon Files
+panel_iframe:
+  ide:
+    title: IDE
+    icon: mdi:code-braces
+    url: !secret ide_url
+  logviewer:
+    title: Log Viewer
+    icon: mdi:script
+    url: !secret log_viewer_url
+  mdiindex:
+    title: MDI Icon Index
+    icon: mdi:vector-square
+    url: https://cdn.rawgit.com/james-fry/home-assistant-mdi/efd95d7a/home-assistant-mdi.html

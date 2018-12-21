@@ -1,0 +1,386 @@
+########################################
+# Devices
+########################################
+device_tracker.miphone:
+  friendly_name: Benjamin
+device_tracker.annas_iphone:
+  friendly_name: Anna
+
+
+########################################
+# Lights
+########################################
+light.living_room_main_lights:
+  friendly_name: Living Room Overhead Lights
+light.family_room_main_lights:
+  friendly_name: Family Room Overhead Lights
+light.office_main_lights:
+  friendly_name: Office Overhead Lights
+light.front_porch_overhead_light:
+  friendly_name: Front Porch Lights
+light.master_bathroom_vanity_lights:
+  friendly_name: Master Bathroom Lights
+
+########################################
+# Commutes
+########################################
+sensor.home_to_work_ben:
+  friendly_name: Ben's Work Commute
+sensor.work_to_home_ben:
+  friendly_name: Ben's Commute Home
+sensor.home_to_work_anna:
+  friendly_name: Anna's Work Commute
+sensor.work_to_home_anna:
+  friendly_name: Anna's Commute Home
+
+
+########################################
+# Switches
+########################################
+switch.wemo_insight_01:
+  friendly_name: Washing Machine Power
+  icon: mdi:washing-machine
+switch.wemo_insight_02:
+  friendly_name: Sound System Power
+  icon: mdi:speaker
+  #extra_data_template: "${attributes.current_power_w > 1 ? (Math.round(attributes.current_power_w) + 'W') : ''}"
+  #extra_badge:
+    #- entity_id: sensor.wemo_energy_today
+      #blacklist_states: 0
+    #- entity_id: sensor.wemo_insight_02_cost_today
+switch.tp_plug_01:
+  friendly_name: Christmas Tree
+  icon: mdi:snowflake
+switch.tp_plug_02:
+  friendly_name: Garland
+  icon: mdi:snowflake
+
+
+########################################
+# Nest
+########################################
+sensor.hallway_thermostat_away_mode:
+  friendly_name: Nest Away Mode
+
+
+########################################
+# Google
+########################################
+sensor.google_wifi_current_version:
+  friendly_name: 'Google Wifi: Version'
+sensor.google_wifi_last_restart:
+  friendly_name: 'Google Wifi: Last Restart'
+sensor.google_wifi_new_version:
+  friendly_name: 'Google Wifi: New Version'
+sensor.google_wifi_status:
+  friendly_name: 'Google Wifi: Status'
+sensor.google_wifi_uptime:
+  friendly_name: 'Google Wifi: Uptime'
+
+########################################
+# Hide DarkSky Sensors
+########################################
+sensor.dark_sky_summary:
+  hidden: true
+sensor.dark_sky_summary_1:
+  hidden: true
+sensor.dark_sky_summary_2:
+  hidden: true
+sensor.dark_sky_summary_3:
+  hidden: true
+sensor.dark_sky_summary_4:
+  hidden: true
+sensor.dark_sky_summary_5:
+  hidden: true
+
+#sensor.dark_sky_minutely_summary:
+  #hidden: true
+sensor.dark_sky_hourly_summary:
+  hidden: true
+sensor.dark_sky_daily_summary:
+  hidden: true
+
+sensor.dark_sky_icon:
+  hidden: true
+sensor.dark_sky_icon_1:
+  hidden: true
+sensor.dark_sky_icon_2:
+  hidden: true
+sensor.dark_sky_icon_3:
+  hidden: true
+sensor.dark_sky_icon_4:
+  hidden: true
+sensor.dark_sky_icon_5:
+  hidden: true
+
+#sensor.dark_sky_nearest_storm_distance:
+  #hidden: true
+#sensor.dark_sky_nearest_storm_bearing:
+  #hidden: true
+
+sensor.dark_sky_precip:
+  hidden: true
+sensor.dark_sky_precip_1:
+  hidden: true
+sensor.dark_sky_precip_2:
+  hidden: true
+sensor.dark_sky_precip_3:
+  hidden: true
+sensor.dark_sky_precip_4:
+  hidden: true
+sensor.dark_sky_precip_5:
+  hidden: true
+
+#sensor.dark_sky_precip_type:
+  #hidden: true
+
+#sensor.dark_sky_dew_point:
+  #hidden: true
+#sensor.dark_sky_dew_point_1:
+  #hidden: true
+#sensor.dark_sky_dew_point_2:
+  #hidden: true
+#sensor.dark_sky_dew_point_3:
+  #hidden: true
+#sensor.dark_sky_dew_point_4:
+  #hidden: true
+#sensor.dark_sky_dew_point_5:
+  #hidden: true
+
+#sensor.dark_sky_uv_index:
+  #hidden: true
+#sensor.dark_sky_uv_index_1:
+  #hidden: true
+#sensor.dark_sky_uv_index_2:
+  #hidden: true
+#sensor.dark_sky_uv_index_3:
+  #hidden: true
+#sensor.dark_sky_uv_index_4:
+  #hidden: true
+#sensor.dark_sky_uv_index_5:
+  #hidden: true
+
+sensor.dark_sky_wind_speed:
+  hidden: true
+sensor.dark_sky_wind_speed_1:
+  hidden: true
+sensor.dark_sky_wind_speed_2:
+  hidden: true
+sensor.dark_sky_wind_speed_3:
+  hidden: true
+sensor.dark_sky_wind_speed_4:
+  hidden: true
+sensor.dark_sky_wind_speed_5:
+  hidden: true
+
+sensor.dark_sky_wind_bearing:
+  hidden: true
+sensor.dark_sky_wind_bearing_1:
+  hidden: true
+sensor.dark_sky_wind_bearing_2:
+  hidden: true
+sensor.dark_sky_wind_bearing_3:
+  hidden: true
+sensor.dark_sky_wind_bearing_4:
+  hidden: true
+sensor.dark_sky_wind_bearing_5:
+  hidden: true
+
+#sensor.dark_sky_wind_gust:
+  #hidden: true
+#sensor.dark_sky_wind_gust_1:
+  #hidden: true
+#sensor.dark_sky_wind_gust_2:
+  #hidden: true
+#sensor.dark_sky_wind_gust_3:
+  #hidden: true
+#sensor.dark_sky_wind_gust_4:
+  #hidden: true
+#sensor.dark_sky_wind_gust_5:
+  #hidden: true
+
+#sensor.dark_sky_cloud_coverage:
+  #hidden: true
+#sensor.dark_sky_cloud_coverage_1:
+  #hidden: true
+#sensor.dark_sky_cloud_coverage_2:
+  #hidden: true
+#sensor.dark_sky_cloud_coverage_3:
+  #hidden: true
+#sensor.dark_sky_cloud_coverage_4:
+  #hidden: true
+#sensor.dark_sky_cloud_coverage_5:
+  #hidden: true
+
+#sensor.dark_sky_ozone:
+  #hidden: true
+#sensor.dark_sky_ozone_1:
+  #hidden: true
+#sensor.dark_sky_ozone_2:
+  #hidden: true
+#sensor.dark_sky_ozone_3:
+  #hidden: true
+#sensor.dark_sky_ozone_4:
+  #hidden: true
+#sensor.dark_sky_ozone_5:
+  #hidden: true
+
+sensor.dark_sky_precip_intensity:
+  hidden: true
+sensor.dark_sky_precip_intensity_1:
+  hidden: true
+sensor.dark_sky_precip_intensity_2:
+  hidden: true
+sensor.dark_sky_precip_intensity_3:
+  hidden: true
+sensor.dark_sky_precip_intensity_4:
+  hidden: true
+sensor.dark_sky_precip_intensity_5:
+  hidden: true
+
+sensor.dark_sky_daily_max_precip_intensity_1:
+  hidden: true
+sensor.dark_sky_daily_max_precip_intensity_2:
+  hidden: true
+sensor.dark_sky_daily_max_precip_intensity_3:
+  hidden: true
+sensor.dark_sky_daily_max_precip_intensity_4:
+  hidden: true
+sensor.dark_sky_daily_max_precip_intensity_5:
+  hidden: true
+
+sensor.dark_sky_precip_probability:
+  hidden: true
+sensor.dark_sky_precip_probability_1:
+  hidden: true
+sensor.dark_sky_precip_probability_2:
+  hidden: true
+sensor.dark_sky_precip_probability_3:
+  hidden: true
+sensor.dark_sky_precip_probability_4:
+  hidden: true
+sensor.dark_sky_precip_probability_5:
+  hidden: true
+
+sensor.dark_sky_precip_accumulation_1:
+  hidden: true
+sensor.dark_sky_precip_accumulation_2:
+  hidden: true
+sensor.dark_sky_precip_accumulation_3:
+  hidden: true
+sensor.dark_sky_precip_accumulation_4:
+  hidden: true
+sensor.dark_sky_precip_accumulation_5:
+  hidden: true
+
+sensor.dark_sky_humidity:
+  hidden: true
+sensor.dark_sky_humidity_1:
+  hidden: true
+sensor.dark_sky_humidity_2:
+  hidden: true
+sensor.dark_sky_humidity_3:
+  hidden: true
+sensor.dark_sky_humidity_4:
+  hidden: true
+sensor.dark_sky_humidity_5:
+  hidden: true
+
+sensor.dark_sky_pressure:
+  hidden: true
+sensor.dark_sky_pressure_1:
+  hidden: true
+sensor.dark_sky_pressure_2:
+  hidden: true
+sensor.dark_sky_pressure_3:
+  hidden: true
+sensor.dark_sky_pressure_4:
+  hidden: true
+sensor.dark_sky_pressure_5:
+  hidden: true
+
+sensor.dark_sky_visibility:
+  hidden: true
+sensor.dark_sky_visibility_1:
+  hidden: true
+sensor.dark_sky_visibility_2:
+  hidden: true
+sensor.dark_sky_visibility_3:
+  hidden: true
+sensor.dark_sky_visibility_4:
+  hidden: true
+sensor.dark_sky_visibility_5:
+  hidden: true
+
+sensor.dark_sky_temperature:
+  hidden: true
+sensor.dark_sky_temperature_1:
+  hidden: true
+sensor.dark_sky_temperature_2:
+  hidden: true
+sensor.dark_sky_temperature_3:
+  hidden: true
+sensor.dark_sky_temperature_4:
+  hidden: true
+sensor.dark_sky_temperature_5:
+  hidden: true
+
+sensor.dark_sky_daytime_high_temperature_1:
+  hidden: true
+sensor.dark_sky_daytime_high_temperature_2:
+  hidden: true
+sensor.dark_sky_daytime_high_temperature_3:
+  hidden: true
+sensor.dark_sky_daytime_high_temperature_4:
+  hidden: true
+sensor.dark_sky_daytime_high_temperature_5:
+  hidden: true
+
+#sensor.dark_sky_daytime_high_apparent_temperature_1:
+  #hidden: true
+#sensor.dark_sky_daytime_high_apparent_temperature_2:
+  #hidden: true
+#sensor.dark_sky_daytime_high_apparent_temperature_3:
+  #hidden: true
+#sensor.dark_sky_daytime_high_apparent_temperature_4:
+  #hidden: true
+#sensor.dark_sky_daytime_high_apparent_temperature_5:
+  #hidden: true
+
+#sensor.dark_sky_overnight_low_apparent_temperature_1:
+  #hidden: true
+#sensor.dark_sky_overnight_low_apparent_temperature_2:
+  #hidden: true
+#sensor.dark_sky_overnight_low_apparent_temperature_3:
+  #hidden: true
+#sensor.dark_sky_overnight_low_apparent_temperature_4:
+  #hidden: true
+#sensor.dark_sky_overnight_low_apparent_temperature_5:
+  #hidden: true
+
+sensor.dark_sky_overnight_low_temperature_1:
+  hidden: true
+sensor.dark_sky_overnight_low_temperature_2:
+  hidden: true
+sensor.dark_sky_overnight_low_temperature_3:
+  hidden: true
+sensor.dark_sky_overnight_low_temperature_4:
+  hidden: true
+sensor.dark_sky_overnight_low_temperature_5:
+  hidden: true
+
+sensor.dark_sky_low_temperature:
+  hidden: true
+sensor.dark_sky_low_temperature_1:
+  hidden: true
+
+#sensor.dark_sky_moon_phase_1:
+  #hiden: true
+#sensor.dark_sky_moon_phase_2:
+  #hiden: true
+#sensor.dark_sky_moon_phase_3:
+  #hiden: true
+#sensor.dark_sky_moon_phase_4:
+  #hiden: true
+#sensor.dark_sky_moon_phase_5:
+  #hiden: true

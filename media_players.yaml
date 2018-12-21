@@ -1,0 +1,17 @@
+# Plex
+- platform: plex
+  show_all_controls: true
+
+# Spotify (Ben)
+- platform: spotify
+  name: Ben's Spotify
+  client_id: !secret spotify_ben_client_id
+  client_secret: !secret spotify_ben_client_secret
+  cache_path: '.spotify_cache_ben'
+
+# Spotify (Echo)
+- platform: spotify
+  name: Echo Spotify
+  client_id: !secret spotify_echo_client_id
+  client_secret: !secret spotify_echo_client_secret
+  cache_path: '.spotify_cache_echo'

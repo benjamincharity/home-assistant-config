@@ -1,0 +1,52 @@
+
+
+family_room:
+  name: Family Room
+  icon: mdi:sofa
+  entities:
+    - light.family_room_main_lights
+    - light.family_room_lamp
+    - light.tv
+
+dining_room:
+  name: Dining Room
+  icon: mdi:silverware
+  entities:
+    - light.dining_room_corner
+    - light.dining_room_lamp
+
+office:
+  name: Office
+  icon: mdi:desk-lamp
+  entities:
+    - light.office_main_lights
+    - light.bens_desk
+
+living_room:
+  name: Living Room
+  icon: mdi:glass-cocktail
+  entities:
+    - light.living_room_main_lights
+    - light.living_room_lamp
+    - light.bar_cart_lamp
+    - switch.tp_plug_01
+
+master:
+  name: Master Bedroom
+  icon: mdi:bed-empty
+  entities:
+    - light.annas_lamp
+
+kitchen:
+  name: Kitchen
+  icon: mdi:kettle
+  entities:
+    - switch.tp_plug_02
+
+nest_thermostat:
+  name: Thermostat
+  view: no
+  entities:
+    - climate.hallway
+    - sensor.hallway_thermostat_temperature
+    - sensor.hallway_thermostat_away_mode
