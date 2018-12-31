@@ -1,0 +1,31 @@
+
+#####################
+#
+# Welcome Home
+#
+#####################
+
+- name: Welcome Home
+  entities:
+    light.living_room_main_lights:
+      state: on
+      brightness_pct: 50
+    light.tv:
+      state: on
+      brightness_pct: 100
+    light.family_room_lamp:
+      state: on
+      brightness_pct: 60
+
+
+- name: Movie Time
+  entities:
+    light.living_room_main_lights: off
+    group.living_room_lamps: off
+    light.family_room_main_lights: off
+    light.tv:
+      state: on
+      brightness_pct: 80
+    light.family_room_lamp:
+      state: on
+      brightness_pct: 30

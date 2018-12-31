@@ -1,5 +1,85 @@
 wemo:
-  #discovery: true
-  #static:
-    #- !secret wemo_01_ip
-    #- !secret wemo_02_ip
+
+
+#####################
+#
+# Customize
+#
+#####################
+homeassistant:
+  customize:
+    switch.wemo_insight_01:
+      friendly_name: Washing Machine Power
+      icon: mdi:washing-machine
+      hidden: true
+    switch.wemo_insight_02:
+      friendly_name: Sound System Power
+      icon: mdi:speaker
+      hidden: true
+    sensor.wemo_insight_01_energy_today:
+      icon: mdi:flash-circle
+    sensor.wemo_insight_01_cost_today:
+      icon: mdi:currency-usd
+    sensor.wemo_insight_01_power:
+      icon: mdi:washing-machine
+    sensor.wemo_insight_01_status:
+      icon: mdi:power-plug
+    sensor.wemo_insight_02_energy_today:
+      icon: mdi:flash-circle
+    sensor.wemo_insight_02_cost_today:
+      icon: mdi:currency-usd
+    sensor.wemo_insight_02_power:
+      icon: mdi:speaker
+    sensor.wemo_insight_02_status:
+      icon: mdi:power-plug
+
+
+#####################
+#
+# Sensors
+# NOTE: $0.11 is the average cost of power per KWH in GA
+#
+#####################
+sensor:
+  - platform: template
+    sensors:
+      wemo_insight_01_energy_today:
+        friendly_name: 'Washing Maching Power Usage Today (kWh)'
+        value_template: '{{ states.switch.wemo_insight_01.attributes["today_energy_kwh"] }}'
+        unit_of_measurement: 'KWH'
+      wemo_insight_01_cost_today:
+        friendly_name: 'Washing Machine Power Cost Today'
+        value_template: '{{ states.switch.wemo_insight_01.attributes["today_energy_kwh"] | multiply(0.11) | round (2) }}'
+        unit_of_measurement: '$'
+      wemo_insight_01_power:
+        friendly_name: 'Washing Machine Current Power Usage'
+        value_template: '{{ states.switch.wemo_insight_01.attributes["current_power_w"] }}'
+        unit_of_measurement: 'W'
+      wemo_insight_01_status:
+        friendly_name: 'Washing Machine Status'
+        value_template: >
+          {% if states.switch.wemo_insight_01.attributes["current_power_w"] > 5 %}
+            Running
+          {% else %}
+            Idle
+          {% endif %}
+      wemo_insight_02_energy_today:
+        friendly_name: 'Sound System Power Usage Today (kWh)'
+        value_template: '{{ states.switch.wemo_insight_02.attributes["today_energy_kwh"] }}'
+        unit_of_measurement: 'KWH'
+      wemo_insight_02_cost_today:
+        friendly_name: 'Sound System Power Cost Today'
+        value_template: '{{ states.switch.wemo_insight_02.attributes["today_energy_kwh"] | multiply(0.11) | round (2) }}'
+        unit_of_measurement: '$'
+      wemo_insight_02_power:
+        friendly_name: 'Sound System Current Power Usage'
+        value_template: '{{ states.switch.wemo_insight_02.attributes["current_power_w"] }}'
+        unit_of_measurement: 'W'
+      wemo_insight_02_status:
+        friendly_name: 'Sound System Status'
+        value_template: >
+          {% if states.switch.wemo_insight_02.attributes["current_power_w"] > 10 %}
+            On
+          {% else %}
+            Off
+          {% endif %}

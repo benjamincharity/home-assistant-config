@@ -13,3 +13,4 @@ known_devices.yaml
 plex.conf
 secrets.yaml
 tts/
+custom_components/media_player/__pycache__/

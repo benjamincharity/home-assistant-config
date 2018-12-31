@@ -15,3 +15,9 @@
   client_id: !secret spotify_echo_client_id
   client_secret: !secret spotify_echo_client_secret
   cache_path: '.spotify_cache_echo'
+
+# Alexa
+- platform: alexa
+  email: !secret amazon_email
+  password: !secret amazon_password
+  url: 'amazon.com'

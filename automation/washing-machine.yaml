@@ -1,0 +1,18 @@
+#####################
+#
+# Washing machine
+#
+#####################
+- alias: Alert Washing Machine
+  trigger:
+  - entity_id: binary_sensor.washing_machine
+    platform: state
+  condition:
+  - condition: state
+    entity_id: binary_sensor.benjamin_presence
+    state: 'on'
+  action:
+  - data:
+      message: "{% if trigger.to_state.state == 'on' -%}\n  Load is running.\n{%-\
+        \ else -%}\n  Load has finished.\n{%- endif %}\n"
+    service: notify.ios_miphone

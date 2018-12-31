@@ -42,3 +42,9 @@
       prob_given_false: 0.4
       platform: 'state'
       to_state: 'home'
+
+# Washing Machine
+- platform: template
+  sensors:
+    washing_machine:
+      value_template: "{{ states.sensor.wemo_insight_01_power > 5 }}"

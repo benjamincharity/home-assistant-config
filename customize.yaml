@@ -1,15 +1,51 @@
 ########################################
 # Devices
 ########################################
+# Benjamin
 device_tracker.miphone:
   friendly_name: Benjamin
+  hidden: true
+device_tracker.miphone_2:
+  friendly_name: Benjamin's Phone Bluetooth
+  hidden: true
+device_tracker.miphonelan:
+  friendly_name: Benjamin's Phone Lan
+  hidden: true
+sensor.miphone_battery_level:
+  hidden: true
+sensor.miphone_battery_state:
+  hidden: true
+sensor.benjamin_presence_sensor:
+  hidden: true
+
+# Anna
 device_tracker.annas_iphone:
   friendly_name: Anna
+  hidden: true
+device_tracker.annasiphonelan:
+  friendly_name: Anna's Phone Lan
+  hidden: true
+sensor.annas_iphone_battery_level:
+  hidden: true
+sensor.annas_iphone_battery_state:
+  hidden: true
+sensor.anna_presence_sensor:
+  hidden: true
+
+### Friends
+# Lily
+device_tracker.lilys_iphone:
+  friendly_name: Lily's iPhone
+# iPad
+media_player.benjamin_charitys_ipad:
+  friendly_name: iPad
 
 
 ########################################
 # Lights
 ########################################
+group.all_lights:
+  friendly_name: All Lights
 light.living_room_main_lights:
   friendly_name: Living Room Overhead Lights
 light.family_room_main_lights:
@@ -37,17 +73,6 @@ sensor.work_to_home_anna:
 ########################################
 # Switches
 ########################################
-switch.wemo_insight_01:
-  friendly_name: Washing Machine Power
-  icon: mdi:washing-machine
-switch.wemo_insight_02:
-  friendly_name: Sound System Power
-  icon: mdi:speaker
-  #extra_data_template: "${attributes.current_power_w > 1 ? (Math.round(attributes.current_power_w) + 'W') : ''}"
-  #extra_badge:
-    #- entity_id: sensor.wemo_energy_today
-      #blacklist_states: 0
-    #- entity_id: sensor.wemo_insight_02_cost_today
 switch.tp_plug_01:
   friendly_name: Christmas Tree
   icon: mdi:snowflake
@@ -61,6 +86,89 @@ switch.tp_plug_02:
 ########################################
 sensor.hallway_thermostat_away_mode:
   friendly_name: Nest Away Mode
+binary_sensor.hallway_thermostat_has_leaf:
+  hidden: true
+binary_sensor.hallway_thermostat_is_locked:
+  hidden: true
+binary_sensor.hallway_thermostat_is_using_emergency_heat:
+  hidden: true
+binary_sensor.hallway_thermostat_online:
+  hidden: true
+sensor.hallway_thermostat_hvac_state:
+  hidden: true
+sensor.hallway_thermostat_target:
+  hidden: true
+sensor.hallway_thermostat_operation_mode:
+  hidden: true
+binary_sensor.hallway_thermostat_fan:
+  hidden: true
+binary_sensor.home_away:
+  hidden: true
+sensor.home_security_state:
+  hidden: true
+
+# Cameras
+binary_sensor.family_room_camera__front_door_activity:
+  hidden: true
+binary_sensor.family_room_camera__front_window_1_activity:
+  hidden: true
+binary_sensor.family_room_camera__front_window_2_activity:
+  hidden: true
+binary_sensor.family_room_camera__kitchen_activity:
+  hidden: true
+binary_sensor.family_room_camera_motion_detected:
+  hidden: true
+binary_sensor.family_room_camera_online:
+  hidden: true
+binary_sensor.family_room_camera_person_detected:
+  hidden: true
+binary_sensor.family_room_camera_sound_detected:
+  hidden: true
+binary_sensor.front_door_camera__driveway_activity:
+  hidden: true
+binary_sensor.front_door_camera__neighbors_activity:
+  hidden: true
+binary_sensor.front_door_camera__porch_activity:
+  hidden: true
+binary_sensor.front_door_camera__street_activity:
+  hidden: true
+binary_sensor.front_door_camera_motion_detected:
+  hidden: true
+binary_sensor.front_door_camera_online:
+  hidden: true
+binary_sensor.front_door_camera_person_detected:
+  hidden: true
+binary_sensor.front_door_camera_sound_detected:
+  hidden: true
+binary_sensor.office_camera__office_door_activity:
+  hidden: true
+binary_sensor.office_camera__office_window_1_activity:
+  hidden: true
+binary_sensor.office_camera__office_window_2_activity:
+  hidden: true
+binary_sensor.office_camera__unfinished_basement_door_activity:
+  hidden: true
+binary_sensor.office_camera_motion_detected:
+  hidden: true
+binary_sensor.office_camera_online:
+  hidden: true
+binary_sensor.office_camera_person_detected:
+  hidden: true
+binary_sensor.office_camera_sound_detected:
+  hidden: true
+
+
+########################################
+# August
+########################################
+binary_sensor.carport_door_open:
+  friendly_name: Carport Door Status
+  value_template: >
+    {% if states.binary_sensor.carport_door_open == 'off' %}
+      Closed
+    {% else %}
+      Open
+    {% endif %}
 
 
 ########################################
@@ -70,12 +178,38 @@ sensor.google_wifi_current_version:
   friendly_name: 'Google Wifi: Version'
 sensor.google_wifi_last_restart:
   friendly_name: 'Google Wifi: Last Restart'
+  value_template: "{{ as_timestamp(states.sensor.google_wifi_last_restart.state) | timestamp_custom('%D %-I:%M %P') }}"
 sensor.google_wifi_new_version:
   friendly_name: 'Google Wifi: New Version'
 sensor.google_wifi_status:
   friendly_name: 'Google Wifi: Status'
 sensor.google_wifi_uptime:
   friendly_name: 'Google Wifi: Uptime'
+
+
+########################################
+# Hide Various Items
+########################################
+device_tracker.hostone:
+  hidden: true
+binary_sensor.workday:
+  hidden: true
+binary_sensor.worknight:
+  hidden: true
+sensor.nextsunrise:
+  hidden: true
+sensor.nextsunset:
+  hidden: true
+device_tracker.titan:
+  hidden: true
+sensor.plex:
+  hidden: true
+binary_sensor.washing_machine:
+  hidden: true
+sun.sun:
+  hidden: true
+
+
 
 ########################################
 # Hide DarkSky Sensors
@@ -336,6 +470,8 @@ sensor.dark_sky_daytime_high_temperature_4:
 sensor.dark_sky_daytime_high_temperature_5:
   hidden: true
 
+sensor.dark_sky_apparent_temperature:
+  hidden: true
 #sensor.dark_sky_daytime_high_apparent_temperature_1:
   #hidden: true
 #sensor.dark_sky_daytime_high_apparent_temperature_2:

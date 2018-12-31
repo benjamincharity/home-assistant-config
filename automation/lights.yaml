@@ -1,0 +1,63 @@
+#####################
+#
+# Porch lights on at sunset
+#
+#####################
+- alias: Turn on the porch lights when the sun sets
+  trigger:
+  - event: sunset
+    platform: sun
+  condition:
+  - condition: state
+    entity_id: light.front_porch_overhead_light
+    state: 'off'
+  action:
+  - entity_id: light.front_porch_overhead_light
+    service: light.turn_on
+
+
+#####################
+#
+# Porch lights off at 11pm
+#
+#####################
+- alias: Turn off the porch lights at 11pm
+  trigger:
+    platform: time
+    hours: 23
+    minutes: 00
+    seconds: 00
+  condition:
+  - condition: state
+    entity_id: light.living_room_main_lights
+    state: 'off'
+  action:
+  - entity_id: light.front_porch_overhead_light
+    service: light.turn_off
+
+
+#####################
+#
+# Turn on porch lights when someone is near
+#
+#####################
+- alias: Turn on porch lights when someone is on the porch
+  trigger:
+  - entity_id: binary_sensor.front_door_camera__porch_activity
+    from: 'off'
+    platform: state
+    to: 'on'
+  - entity_id: binary_sensor.front_door_camera_person_detected
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  action:
+  - data:
+      brightness_pct: 100
+    entity_id:
+    - light.front_porch
+    service: light.turn_on

@@ -1,4 +1,6 @@
 resources:
+  - url: /local/custom_ui/card-tools.js
+    type: js
   - url: /local/custom_ui/dark-sky-weather-card.js?v=1.1.8
     type: js
   - url: /local/custom_ui/thermostat-card/thermostat-card.js?v=1
@@ -9,7 +11,8 @@ resources:
     type: module
   - url: /local/custom_ui/bignumber-card.js?v=0
     type: module
-
+  - url: /local/custom_ui/card-modder.js
+    type: module
 
 
 
@@ -24,7 +27,7 @@ views:
         id: dark-sky
         entity_sun: sun.sun
         entity_daily_summary: sensor.dark_sky_daily_summary
-        entity_current_conditions: sensor.dark_sky_icon  
+        entity_current_conditions: sensor.dark_sky_icon
         entity_humidity: sensor.dark_sky_humidity
         entity_pressure: sensor.dark_sky_pressure
         entity_temperature: sensor.dark_sky_temperature
@@ -51,11 +54,15 @@ views:
       - type: vertical-stack
         cards:
         - type: picture-entity
-          image: /local/images/people/ben-1.jpg
-          entity: device_tracker.miphone
+          entity: binary_sensor.benjamin_presence
+          state_image:
+            "on": /local/images/people/ben-1.jpg
+            "off": /local/images/people/ben-1-bw.jpg
         - type: picture-entity
-          image: /local/images/people/anna-1.jpg
-          entity: device_tracker.annas_iphone
+          entity: binary_sensor.anna_presence
+          state_image:
+            "on": /local/images/people/anna-1.jpg
+            "off": /local/images/people/anna-1-bw.jpg
 
       # Thermostat
       - type: thermostat
@@ -92,9 +99,15 @@ views:
           - type: custom:fold-entity-row
             head: group.dining_room
           - type: custom:fold-entity-row
+            head: group.kitchen
+          - type: custom:fold-entity-row
             head: group.office
           - type: custom:fold-entity-row
             head: group.master
+          - type: custom:fold-entity-row
+            head: group.guest
+          - type: custom:fold-entity-row
+            head: group.front_porch
 
       - type: glance
         title: Energy
@@ -136,10 +149,51 @@ views:
 
 
 
+  ##############################
+  #
+  # Info Panel
+  #
+  ##############################
+  - title: Info
+    icon: mdi:information-outline
+    id: info
+    cards:
+      - type: custom:card-modder
+        card:
+          type: picture-elements
+          image: /local/images/people/ben-1.jpg
+          elements:
+            - type: state-label
+              entity: sensor.benjamin_presence_sensor
+              prefix: 'Benjamin -- '
+              style:
+                color: white
+                left: 30%
+                top: 93%
+            - type: state-icon
+              entity: sensor.miphone_battery_level
+              style:
+                color: white
+                left: 73%
+                top: 92%
+            - type: state-label
+              entity: sensor.miphone_battery_level
+              style:
+                color: white
+                left: 87%
+                top: 93%
 
 
 
 
+
+
+
+  ##############################
+  #
+  # Surveillance
+  #
+  ##############################
   - title: Surveillance
     icon: mdi:cctv
     panel: true
@@ -158,6 +212,11 @@ views:
 
 
 
+  ##############################
+  #
+  # Morning
+  #
+  ##############################
   - title: Morning
     icon: mdi:weather-sunset-up
     id: morning
@@ -166,7 +225,7 @@ views:
         id: dark-sky-morning
         entity_sun: sun.sun
         entity_daily_summary: sensor.dark_sky_daily_summary
-        entity_current_conditions: sensor.dark_sky_icon  
+        entity_current_conditions: sensor.dark_sky_icon
         entity_humidity: sensor.dark_sky_humidity
         entity_pressure: sensor.dark_sky_pressure
         entity_temperature: sensor.dark_sky_temperature
@@ -217,6 +276,11 @@ views:
 
 
 
+  ##############################
+  #
+  # Evening
+  #
+  ##############################
   - title: Evening
     icon: mdi:weather-sunset
     id: evening
@@ -234,9 +298,15 @@ views:
           - type: custom:fold-entity-row
             head: group.dining_room
           - type: custom:fold-entity-row
+            head: group.kitchen
+          - type: custom:fold-entity-row
             head: group.office
           - type: custom:fold-entity-row
             head: group.master
+          - type: custom:fold-entity-row
+            head: group.guest
+          - type: custom:fold-entity-row
+            head: group.front_porch
 
       # Rooms (glance)
       - type: vertical-stack
@@ -274,7 +344,3 @@ views:
         - type: media-control
           id: media-evening-echo
           entity: media_player.echo_spotify
-
-
-
-

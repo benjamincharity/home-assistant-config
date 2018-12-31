@@ -1,8 +1,27 @@
 alexa:
   filter:
-    exclude_entities:
-      - group.all_automations
-      - group.all_scripts
-      - group.all_switches
-      - sensor.dark_sky_daytime_high_apparent_temperature_2
-
+    include_entities:
+      - switch.tp_plug_01
+      - switch.tp_plug_02
+      - group.dining_room
+      - group.family_room
+      - group.living_room
+      - group.living_room_lamps
+      - group.master
+      - group.guest
+      - group.all_lights
+      - group.office
+      - group.christmas_lights
+      - light.dining_room_corner
+      - light.dining_room_lamp
+      - light.family_room_lamp
+      - light.family_room_main_lights
+      - light.living_room_lamp
+      - light.living_room_main_lights
+      - light.living_room_main_lights
+      - light.bar_cart_lamp
+      - light.tv
+      - light.master_bathroom_vanity_lights
+      - light.guest_floor_lamp
+      - light.guest_table_lamp
+      - light.bens_desk

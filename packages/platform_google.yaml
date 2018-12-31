@@ -17,10 +17,11 @@ sensor:
 
 group:
   google_card:
-    name: Google
+    name: Internet
     entities:
       - sensor.google_wifi_current_version
       - sensor.google_wifi_last_restart
       - sensor.google_wifi_new_version
       - sensor.google_wifi_status
       - sensor.google_wifi_uptime
+      - sensor.fastcom_download

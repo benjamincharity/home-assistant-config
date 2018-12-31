@@ -1,0 +1,48 @@
+test_script:
+  alias: My Test Script
+  sequence:
+    - alias: Test Dining On
+      service: light.turn_on
+      data:
+        entity_id: light.dining_room_corner
+        brightness: 255
+        rgb_color: 255, 0, 255
+
+
+#####################
+#
+# Panic
+#
+#####################
+panic:
+  alias: Panic
+  sequence:
+    - alias: All on
+      service: light.turn_on
+      data:
+        entity_id: group.all_lights
+        brightness: 255
+
+
+#####################
+#
+# Manage Home Assistant
+#
+#####################
+restart_ha:
+  alias: Restart HomeAssistant
+  sequence:
+    - alias: Restart HA
+      service: homeassistant.restart
+
+reload_automations:
+  alias: Reload Automations
+  sequence:
+    - alias: Reload-Automations
+      service: automation.reload
+
+reload_groups:
+  alias: Reload Groups
+  sequence:
+    - alias: Reload-Groups
+      service: group.reload

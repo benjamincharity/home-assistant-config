@@ -1,0 +1,24 @@
+#####################
+#
+# Turn lights on when Ben arrives home
+#
+#####################
+- alias: Location - Ben is Home Turn on Lights
+
+  trigger:
+    - platform: state
+      entity_id: sensor.benjamin_presence_sensor
+      from: 'Away'
+      to: 'Home'
+
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+    - condition: state
+      entity_id: sensor.anna_presence_sensor
+      state: 'Away'
+
+  action:
+    service: scene.turn_on
+    entity_id: scene.welcome_home

@@ -1,5 +1,19 @@
+family:
+  name: Family
+  icon: mdi:account-star
+  entities:
+    - binary_sensor.anna_presence
+    - binary_sensor.benjamin_presence
 
+friends:
+  name: Friends
+  icon: mdi:account-group
+  entities:
+    - device_tracker.lilys_iphone
 
+############################################
+# Rooms
+############################################
 family_room:
   name: Family Room
   icon: mdi:sofa
@@ -31,6 +45,13 @@ living_room:
     - light.bar_cart_lamp
     - switch.tp_plug_01
 
+living_room_lamps:
+  name: Living Room Lamps
+  icon: mdi:lamp
+  entities:
+    - light.living_room_lamp
+    - light.bar_cart_lamp
+
 master:
   name: Master Bedroom
   icon: mdi:bed-empty
@@ -43,6 +64,23 @@ kitchen:
   entities:
     - switch.tp_plug_02
 
+guest:
+  name: Guest Bedroom
+  icon: mdi:hotel
+  entities:
+    - light.guest_floor_lamp
+    - light.guest_table_lamp
+
+front_porch:
+  name: Front Porch
+  icon: mdi:ceiling-light
+  entities:
+    - light.front_porch_overhead_light
+
+
+############################################
+# Electronic Groups
+############################################
 nest_thermostat:
   name: Thermostat
   view: no
@@ -50,3 +88,38 @@ nest_thermostat:
     - climate.hallway
     - sensor.hallway_thermostat_temperature
     - sensor.hallway_thermostat_away_mode
+
+washing_machine:
+  name: Washing Machine
+  entities:
+    - sensor.wemo_insight_01_status
+    - sensor.wemo_insight_01_cost_today
+    - sensor.wemo_insight_01_energy_today
+    - sensor.wemo_insight_01_power
+
+sound_system:
+  name: Sound System
+  entities:
+    - sensor.wemo_insight_02_status
+    - sensor.wemo_insight_02_cost_today
+    - sensor.wemo_insight_02_energy_today
+    - sensor.wemo_insight_02_power
+
+
+############################################
+# Seasonal
+############################################
+christmas_lights:
+  name: Christmas Lights
+  entities:
+    - switch.tp_plug_01
+    - switch.tp_plug_02
+
+
+############################################
+# Special
+############################################
+panic_lights:
+  name: Panic Lights
+  entities:
+    - group.all_lights
