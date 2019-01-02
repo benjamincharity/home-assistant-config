@@ -8,3 +8,14 @@ guest_mode:
   name: Guest Mode
   initial: off
   icon: mdi:account-multiple
+
+
+#####################
+#
+# Vacation Mode
+#
+#####################
+vacation_mode:
+  name: Vacation Mode
+  initial: off
+  icon: mdi:beach

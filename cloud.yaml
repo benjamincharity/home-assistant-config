@@ -5,6 +5,7 @@ alexa:
       - switch.tp_plug_02
       - group.dining_room
       - group.family_room
+      - group.family_room_lamps
       - group.living_room
       - group.living_room_lamps
       - group.master

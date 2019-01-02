@@ -1,0 +1,21 @@
+
+#####################
+#
+# Ben's Wakeup Routine
+#
+#####################
+- alias: Ben Wake Up
+  trigger:
+    platform: time
+    hours: 04
+    minutes: 45
+    seconds: 00
+  condition:
+  - condition: state
+    entity_id: binary_sensor.workday
+    state: 'on'
+  action:
+  - service: light.turn_on
+    data:
+      entity_id: light.master_bathroom_vanity_lights
+      brightness_pct: 5
