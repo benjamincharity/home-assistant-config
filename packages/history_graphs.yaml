@@ -1,27 +1,28 @@
 history_graph:
-  presence:
-    name: Presence Graph
-    entities:
-      - binary_sensor.benjamin_presence
-      - binary_sensor.anna_presence
-    hours_to_show: 240
-    refresh: 300
-  battery:
-    name: Battery Use
-    entities:
-      - sensor.miphone_battery_level
-      - sensor.annas_iphone_battery_level
-    hours_to_show: 240
-    refresh: 300
-  internet:
-    name: Internet Graph
-    entities:
-      - sensor.fastcom_download
-    hours_to_show: 240
-    refresh: 300
-  sound_power_consumption:
-    name: Sound System Power Consumption Graph
-    entities:
-      - sensor.wemo_insight_01_energy_today
-    hours_to_show: 2160
-    refresh: 300
+  # NOTE: These are not currently working
+  #presence:
+    #name: Presence Graph
+    #entities:
+      #- binary_sensor.benjamin_presence
+      #- binary_sensor.anna_presence
+    #hours_to_show: 240
+    #refresh: 300
+  #battery:
+    #name: Battery Use
+    #entities:
+      #- sensor.miphone_battery_level
+      #- sensor.annas_iphone_battery_level
+    #hours_to_show: 240
+    #refresh: 300
+  #internet:
+    #name: Internet Graph
+    #entities:
+      #- sensor.fastcom_download
+    #hours_to_show: 240
+    #refresh: 300
+  #sound_power_consumption:
+    #name: Sound System Power Consumption Graph
+    #entities:
+      #- sensor.wemo_insight_01_energy_today
+    #hours_to_show: 2160
+    #refresh: 300

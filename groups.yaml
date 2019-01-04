@@ -1,5 +1,5 @@
-family:
-  name: Family
+household:
+  name: Household
   icon: mdi:account-star
   entities:
     - binary_sensor.anna_presence
@@ -70,6 +70,7 @@ kitchen:
   icon: mdi:kettle
   entities:
     - switch.tp_plug_02
+    - light.kitchen_main_lights
 
 guest:
   name: Guest Bedroom
@@ -78,11 +79,30 @@ guest:
     - light.guest_floor_lamp
     - light.guest_table_lamp
 
+workout:
+  name: Workout Room
+  icon: mdi:dumbbell
+  entities:
+    - light.hue_white_lamp_1
+
 front_porch:
   name: Front Porch
   icon: mdi:ceiling-light
   entities:
     - light.front_porch_overhead_light
+
+garage:
+  name: Garage
+  icon: mdi:garage
+  entities:
+    - light.garage_main_lights
+
+outside_lights:
+  name: Outside Lights
+  icon: mdi:white-balance-incandescent
+  entities:
+    - light.front_porch_overhead_light
+    - light.garage_main_lights
 
 
 ############################################
@@ -111,6 +131,11 @@ sound_system:
     - sensor.wemo_insight_02_cost_today
     - sensor.wemo_insight_02_energy_today
     - sensor.wemo_insight_02_power
+
+outside_status:
+  name: Outside
+  entities:
+    - sensor.outside_temperature
 
 
 ############################################

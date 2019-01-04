@@ -7,6 +7,7 @@
   trigger:
   - event: sunset
     platform: sun
+    offset: "-00:20:00"
   condition:
   - condition: state
     entity_id: light.front_porch_overhead_light
@@ -61,3 +62,43 @@
     entity_id:
     - light.front_porch
     service: light.turn_on
+
+
+#####################
+#
+# Turn on garage light if motion is detected
+#
+#####################
+#- alias: Turn on the garage light when motion is detected
+  #trigger:
+    #platform: state
+    #entity_id: sensor.hue_motion_sensor_motion_01
+    #from: 'off'
+    #to: 'on'
+  #condition:
+    #condition: sun
+    #after: sunset
+    #after_offset: "-01:00:00"
+  #action:
+  #- data:
+      #brightness_pct: 100
+    #entity_id: light.garage_main_lights
+    #service: light.turn_on
+
+
+#####################
+#
+# Turn off garage light after motion stops
+#
+#####################
+#- alias: Turn off garage light 10 minutes after last movement
+  #trigger:
+    #platform: state
+    #entity_id: sensor.hue_motion_sensor_motion_01
+    #from: 'on'
+    #to: 'off'
+    #for:
+      #minutes: 10
+  #action:
+    #service: light.turn_off
+    #entity_id: light.garage_main_lights

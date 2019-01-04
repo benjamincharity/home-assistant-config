@@ -1,23 +1,20 @@
 #####################
 #
-# Turn lights on when Ben arrives home
+# When a household member arrives home after dark
 #
 #####################
-- alias: Location - Ben is Home Turn on Lights
+- alias: Location - Someone is home
 
   trigger:
     - platform: state
-      entity_id: sensor.benjamin_presence_sensor
-      from: 'Away'
-      to: 'Home'
+      entity_id: group.household
+      from: 'away'
+      to: 'home'
 
   condition:
     - condition: state
       entity_id: sun.sun
       state: 'below_horizon'
-    - condition: state
-      entity_id: sensor.anna_presence_sensor
-      state: 'Away'
 
   action:
     service: scene.turn_on

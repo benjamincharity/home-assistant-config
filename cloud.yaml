@@ -26,3 +26,5 @@ alexa:
       - light.guest_floor_lamp
       - light.guest_table_lamp
       - light.bens_desk
+      - light.kitchen_main_lights
+      - light.garage_main_lights

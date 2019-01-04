@@ -13,6 +13,8 @@ resources:
     type: module
   - url: /local/custom_ui/card-modder.js
     type: module
+  - url: /local/custom_ui/slider-entity-row.js
+    type: module
 
 
 
@@ -107,7 +109,9 @@ views:
           - type: custom:fold-entity-row
             head: group.guest
           - type: custom:fold-entity-row
-            head: group.front_porch
+            head: group.workout
+          - type: custom:fold-entity-row
+            head: group.outside_lights
 
       - type: glance
         title: Energy
@@ -208,6 +212,128 @@ views:
             motion_entity: binary_sensor.family_room_camera_motion_detected
           - entity: camera.office
             motion_entity: binary_sensor.office_camera_motion_detected
+
+
+  ##############################
+  #
+  # Light Control
+  #
+  ##############################
+  - title: Light Control
+    icon: mdi:lightbulb-outline
+    id: light-control
+    cards:
+      - type: entities
+        title: Lights
+        show_header_toggle: false
+        entities:
+          # Living Room
+          - type: section
+            label: Living Room
+
+          - entity: light.living_room_main_lights
+          - type: custom:slider-entity-row
+            entity: light.living_room_main_lights
+            full_row: true
+
+          - entity: light.living_room_lamp
+          - type: custom:slider-entity-row
+            entity: light.living_room_lamp
+            full_row: true
+
+          - entity: light.bar_cart_lamp
+          - type: custom:slider-entity-row
+            entity: light.bar_cart_lamp
+            full_row: true
+
+          # Family Room
+          - type: section
+            label: Family Room
+
+          - entity: light.family_room_lamp
+          - type: custom:slider-entity-row
+            entity: light.family_room_lamp
+            full_row: true
+
+          - entity: light.tv
+          - type: custom:slider-entity-row
+            entity: light.tv
+            full_row: true
+
+          # Dining Room
+          - type: section
+            label: Dining Room
+
+          - entity: light.dining_room_corner
+          - type: custom:slider-entity-row
+            entity: light.dining_room_corner
+            full_row: true
+
+          - entity: light.dining_room_lamp
+          - type: custom:slider-entity-row
+            entity: light.dining_room_lamp
+            full_row: true
+
+          # Office
+          - type: section
+            label: Office
+
+          - entity: light.office_main_lights
+          - type: custom:slider-entity-row
+            entity: light.office_main_lights
+            full_row: true
+
+          - entity: light.bens_desk
+          - type: custom:slider-entity-row
+            entity: light.bens_desk
+            full_row: true
+
+          # Kitchen
+          - type: section
+            label: Kitchen
+
+          - entity: light.kitchen_main_lights
+          - type: custom:slider-entity-row
+            entity: light.kitchen_main_lights
+            full_row: true
+
+          # Master
+          - type: section
+            label: Master
+
+          - entity: light.annas_lamp
+          - type: custom:slider-entity-row
+            entity: light.annas_lamp
+            full_row: true
+
+          # Guest
+          - type: section
+            label: Guest
+
+          - entity: light.guest_floor_lamp
+          - type: custom:slider-entity-row
+            entity: light.guest_floor_lamp
+            full_row: true
+
+          - entity: light.guest_table_lamp
+          - type: custom:slider-entity-row
+            entity: light.guest_table_lamp
+            full_row: true
+
+          # Outside
+          - type: section
+            label: Outside
+
+          - entity: light.front_porch_overhead_light
+          - type: custom:slider-entity-row
+            entity: light.front_porch_overhead_light
+            full_row: true
+
+          - entity: light.garage_main_lights
+          - type: custom:slider-entity-row
+            entity: light.garage_main_lights
+            full_row: true
+
 
 
 

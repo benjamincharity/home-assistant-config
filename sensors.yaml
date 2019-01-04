@@ -144,10 +144,23 @@
   start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
   end: '{{ now() }}'
 
-- platform: history_stats
-  name: Total TV Time iPad
-  entity_id: media_player.benjamin_charitys_ipad
-  state: 'playing'
-  type: time
-  start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
-  end: '{{ now() }}'
+# Working example:
+#- platform: history_stats
+  #name: Lamp ON today
+  #entity_id: light.tv
+  #state: 'on'
+  #type: time
+  #start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+  #end: '{{ now() }}'
+  #
+
+
+########################################
+# Outside temperature
+########################################
+- platform: template
+  sensors:
+    outside_temperature:
+      value_template: >
+        {{ (states.sensor.hue_motion_sensor_motion_01.attributes.temperature * 9 / 5 ) + 32 | round(2) }}
+      unit_of_measurement: 'F'

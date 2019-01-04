@@ -17,6 +17,9 @@ sensor.miphone_battery_state:
   hidden: true
 sensor.benjamin_presence_sensor:
   hidden: true
+  icon: mdi:home
+binary_sensor.benjamin_presence:
+  icon: mdi:home
 
 # Anna
 device_tracker.annas_iphone:
@@ -31,6 +34,9 @@ sensor.annas_iphone_battery_state:
   hidden: true
 sensor.anna_presence_sensor:
   hidden: true
+  icon: mdi:home
+binary_sensor.anna_presence:
+  icon: mdi:home
 
 ### Friends
 # Lily
@@ -39,23 +45,77 @@ device_tracker.lilys_iphone:
 # iPad
 media_player.benjamin_charitys_ipad:
   friendly_name: iPad
+  icon: mdi:tablet-ipad
+
+
+########################################
+# Media Players
+########################################
+media_player.family_room_3:
+  friendly_name: Apple TV
+# No clue what this is..
+media_player.benjamins_alexa_apps:
+  hidden: true
+# Duplicate
+media_player.benjamins_2nd_fire_tv:
+  hidden: true
+media_player.benjamins_fire_tv:
+  hidden: true
+media_player.benjamins_fire_tv_stick:
+  hidden: true
+# Duplicate
+media_player.family_room_2:
+  hidden: true
+# No clue what this is..
+media_player.this_device:
+  hidden: true
 
 
 ########################################
 # Lights
 ########################################
 group.all_lights:
-  friendly_name: All Lights
+  friendly_name: All of the Lights
 light.living_room_main_lights:
   friendly_name: Living Room Overhead Lights
+  icon: mdi:white-balance-incandescent
 light.family_room_main_lights:
   friendly_name: Family Room Overhead Lights
+  icon: mdi:white-balance-incandescent
 light.office_main_lights:
   friendly_name: Office Overhead Lights
+  icon: mdi:white-balance-incandescent
 light.front_porch_overhead_light:
   friendly_name: Front Porch Lights
+  icon: mdi:ceiling-light
 light.master_bathroom_vanity_lights:
   friendly_name: Master Bathroom Lights
+light.garage_main_lights:
+  friendly_name: Carport Light
+  icon: mdi:ceiling-light
+light.kitchen_main_lights:
+  friendly_name: Kitchen Overhead Lights
+light.tv:
+  icon: mdi:white-balance-iridescent
+light.bar_cart_lamp:
+  icon: mdi:lamp
+light.family_room_lamp:
+  icon: mdi:lamp
+light.annas_lamp:
+  icon: mdi:lamp
+light.guest_table_lamp:
+  icon: mdi:lamp
+light.guest_floor_lamp:
+  icon: mdi:lamp
+light.living_room_lamp:
+  icon: mdi:lamp
+light.dining_room_corner:
+  icon: mdi:white-balance-iridescent
+light.dining_room_lamp:
+  icon: mdi:lamp
+light.bens_desk:
+  icon: mdi:white-balance-iridescent
+
 
 ########################################
 # Commutes
@@ -79,6 +139,15 @@ switch.tp_plug_01:
 switch.tp_plug_02:
   friendly_name: Garland
   icon: mdi:snowflake
+
+
+########################################
+# Groups
+########################################
+group.front_porch:
+  hidden: true
+group.garage:
+  hidden: true
 
 
 ########################################

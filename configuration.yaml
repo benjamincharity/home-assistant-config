@@ -18,6 +18,8 @@ cloud: !include cloud.yaml
 config:
 conversation:
 discovery:
+  ignore:
+    - apple_tv
 history:
 ios:
 logbook:
