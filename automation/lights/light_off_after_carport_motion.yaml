@@ -1,0 +1,11 @@
+- alias: "Turn off carport light 10 minutes after last movement"
+  trigger:
+    platform: state
+    entity_id: sensor.hue_motion_sensor_motion_01
+    from: 'on'
+    to: 'off'
+    for:
+      minutes: 10
+  action:
+    - service: light.turn_off
+      entity_id: light.garage_main_lights

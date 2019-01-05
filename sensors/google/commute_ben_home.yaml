@@ -1,0 +1,6 @@
+- platform: google_travel_time
+  name: "Home to work Ben"
+  id: commute-ben-work
+  api_key: !secret google_api_key
+  origin: zone.home
+  destination: zone.work_ben

@@ -1,0 +1,8 @@
+# Working example:
+#- platform: history_stats
+  #name: Lamp ON today
+  #entity_id: light.tv
+  #state: 'on'
+  #type: time
+  #start: '{{ now().replace(hour=0).replace(minute=0).replace(second=0) }}'
+  #end: '{{ now() }}'

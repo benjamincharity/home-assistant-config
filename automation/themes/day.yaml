@@ -1,0 +1,11 @@
+- alias: "Theme Change - Day"
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: sun.sun
+    from: below_horizon
+    to: above_horizon
+  action:
+    - service_template: frontend.set_theme
+      data:
+        name: default

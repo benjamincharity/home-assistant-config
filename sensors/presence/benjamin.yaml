@@ -1,0 +1,9 @@
+- platform: template
+  sensors:
+    benjamin_presence_sensor:
+      value_template: >
+        {% if is_state_attr('binary_sensor.benjamin_presence', 'state', 'off') %}
+          Away
+        {% else %}
+          Home
+        {% endif %}

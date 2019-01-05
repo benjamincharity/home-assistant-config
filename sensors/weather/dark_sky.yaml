@@ -1,0 +1,41 @@
+- platform: darksky
+  api_key: !secret dark_sky_api_key
+  forecast:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+  monitored_conditions:
+    - summary
+    - icon
+    - precip_probability
+    - temperature
+    - apparent_temperature
+    - wind_speed
+    - wind_bearing
+    - humidity
+    - pressure
+    - visibility
+    - hourly_summary
+    - daily_summary
+    - temperature_high
+    - temperature_low
+    # Below items are not currently being used by Lovelace weather card:
+    #- uv_index
+    #- precip_type
+    #- precip_intensity
+    #- precip_accumulation
+    #- precip_intensity_max
+    #- dew_point
+    #- minutely_summary
+    #- apparent_temperature_high
+    #- apparent_temperature_low
+    #- moon_phase
+    #- nearest_storm_distance
+    #- nearest_storm_bearing
+    #- wind_gust
+    #- cloud_cover
+    #- ozone
+  update_interval:
+    minutes: 5

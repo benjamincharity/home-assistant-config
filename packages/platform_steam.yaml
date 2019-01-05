@@ -1,0 +1,22 @@
+#####################
+# Sensors
+#####################
+sensor:
+
+  # Steam
+  - platform: steam_online
+    api_key: !secret steam_api_key
+    accounts:
+      - !secret steam_account
+
+  # Current Steam game
+  - platform: template
+    sensors:
+      steam_game:
+        friendly_name: "Game"
+        value_template: >
+          {% if states.sensor.steam_76561198043884486.attributes.game %}
+            {{ states.sensor.steam_76561198043884486.attributes.game }}
+          {% else %}
+            Idle
+          {% endif %}

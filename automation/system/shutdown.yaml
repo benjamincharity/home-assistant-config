@@ -1,0 +1,10 @@
+- alias: "HA Shutdown"
+  hide_entity: true
+  trigger:
+    platform: homeassistant
+    event: shutdown
+  action:
+    - service: notify.ios_miphone
+      data_template:
+        title: Home Assistant Status
+        message: Stopped

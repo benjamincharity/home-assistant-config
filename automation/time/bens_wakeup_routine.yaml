@@ -1,0 +1,29 @@
+- alias: "Ben's wake up routine"
+  trigger:
+    platform: time
+    hours: 04
+    minutes: 45
+    seconds: 00
+  condition:
+    condition: state
+    entity_id: binary_sensor.workday
+    state: 'on'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.master_bathroom_vanity_lights
+        brightness_pct: 5
+    - service: light.turn_on
+      data:
+        entity_id: light.front_porch_overhead_light
+        brightness_pct: 100
+    - delay: '00:10:00'
+    - service: light.turn_on
+      data:
+        entity_id: light.living_room_main_lights
+        brightness_pct: 15
+    - delay: '00:05:00'
+    - service: light.turn_on
+      data:
+        entity_id: light.office_main_lights
+        brightness_pct: 40

@@ -1,0 +1,9 @@
+- platform: template
+  sensors:
+    anna_presence_sensor:
+      value_template: >
+        {% if is_state_attr('binary_sensor.anna_presence', 'state', 'off') %}
+          Away
+        {% else %}
+          Home
+        {% endif %}

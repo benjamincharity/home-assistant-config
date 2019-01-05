@@ -1,8 +1,7 @@
-
-- alias: 'Shortcut: Test'
+- alias: "Shortcut: Test"
   trigger:
-  - platform: webhook
+    platform: webhook
     webhook_id: test_me
   condition: []
   action:
-  - service: script.test_script
+    - service: script.test_script

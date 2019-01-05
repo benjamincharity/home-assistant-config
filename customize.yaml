@@ -5,6 +5,9 @@
 device_tracker.miphone:
   friendly_name: Benjamin
   hidden: true
+# This appeared after setting up hue bridge
+device_tracker.hue_miphone:
+  hidden: true
 device_tracker.miphone_2:
   friendly_name: Benjamin's Phone Bluetooth
   hidden: true
@@ -22,8 +25,12 @@ binary_sensor.benjamin_presence:
   icon: mdi:home
 
 # Anna
+# wifi
 device_tracker.annas_iphone:
   friendly_name: Anna
+  hidden: true
+# bluetooth
+device_tracker.annas_iphone_2:
   hidden: true
 device_tracker.annasiphonelan:
   friendly_name: Anna's Phone Lan

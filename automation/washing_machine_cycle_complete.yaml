@@ -1,0 +1,9 @@
+- alias: "Alert when washing machine cycle finishes"
+  trigger:
+    entity_id: binary_sensor.washing_machine
+    platform: state
+  action:
+    # NOTE: This is currently speaking through the Apple TV
+    - service: tts.google_say
+      data:
+        message: "The washing machine has finished."

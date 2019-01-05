@@ -139,6 +139,20 @@ outside_status:
 
 
 ############################################
+# Media
+############################################
+media:
+  name: Media
+  entities:
+    - media_player.benjamins_echo_dot
+    - media_player.benjamins_fire_tv
+    - media_player.benjamins_fire_tv_stick
+    - media_player.echo
+    - media_player.family_room_3
+    - sensor.steam_76561198043884486
+
+
+############################################
 # Seasonal
 ############################################
 christmas_lights:

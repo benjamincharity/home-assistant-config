@@ -1,0 +1,6 @@
+- platform: template
+  sensors:
+    outside_temperature:
+      value_template: >
+        {{ ((states.sensor.hue_motion_sensor_motion_01.attributes.temperature * 9 / 5 ) + 32) | round(1) }}
+      unit_of_measurement: 'F'

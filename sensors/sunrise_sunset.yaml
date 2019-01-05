@@ -1,0 +1,9 @@
+- platform: template
+  sensors:
+    nextsunrise:
+      friendly_name: 'Next Sunrise'
+      value_template: '{{ as_timestamp(states.sun.sun.attributes.next_rising) | timestamp_custom("%a %I:%M%p") }}'
+
+    nextsunset:
+      friendly_name: 'Next Sunset'
+      value_template: '{{ as_timestamp(states.sun.sun.attributes.next_setting) | timestamp_custom("%a %I:%M%p") }}'

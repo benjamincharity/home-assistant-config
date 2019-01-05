@@ -1,0 +1,10 @@
+- alias: "Raise office lights when a steam game is closed"
+  trigger:
+    platform: state
+    entity_id: sensor.steam_game
+    to: 'Idle'
+  action:
+    - service: light.turn_on
+      entity_id: light.office_main_lights
+      data:
+        brightness: 180

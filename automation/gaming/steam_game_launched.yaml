@@ -1,0 +1,11 @@
+- alias: "Lower office lights when a steam game is launched"
+  trigger:
+    platform: state
+    entity_id: sensor.steam_game
+    from: 'Idle'
+  action:
+    - service: light.turn_on
+      entity_id: light.office_main_lights
+      data:
+        brightness: 40
+        transition: 2
